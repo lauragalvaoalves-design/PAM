@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Simples</title>
+    <style>
+        .calculadora {
+            width: 250px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: sans-serif;
+        }
+        #visor {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 10px;
+            text-align: right;
+            font-size: 24px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .botoes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+        button {
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover { background-color: #ddd; }
+        .operador { background-color: #f39c12; color: white; }
+        .igual { grid-column: span 2; background-color: #27ae60; color: white; }
+  .calculadora {
+        width: 250px;
+        background-color: #222;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    #visor {
+        width: 100%;
+        height: 50px;
+        margin-bottom: 15px;
+        text-align: right;
+        font-size: 24px;
+        box-sizing: border-box; /* Garante que o padding não aumente a largura */
+        border: none;
+        padding: 10px;
+    }
+
+    .botoes {
+        display: grid;
+        /* Cria 4 colunas de tamanhos iguais */
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 8px;
+    }
+
+    button {
+        height: 50px;
+        width: 100%; /* Faz o botão ocupar toda a célula da grade */
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: none;
+    }
+
+    /* Faz o botão "0" ocupar duas colunas para alinhar a última linha */
+    .zero {
+        grid-column: span 2;
+    }
+
+    .operador { background-color: #f39c12; color: white; }
+</style>
+
+<div class="calculadora">
+    <input type="text" id="visor" disabled>
+    <div class="botoes">
+        <!-- Linha 1 -->
+        <button onclick="limpar()">C</button>
+        <button onclick="digitar('/')" class="operador">/</button>
+        <button onclick="digitar('*')" class="operador">*</button>
+        <button onclick="digitar('-')" class="operador">-</button>
+        
+        <!-- Linha 2 -->
+        <button onclick="digitar('7')">7</button>
+        <button onclick="digitar('8')">8</button>
+        <button onclick="digitar('9')">9</button>
+        <button onclick="digitar('+')" class="operador">+</button>
+        
+        <!-- Linha 3 -->
+        <button onclick="digitar('4')">4</button>
+        <button onclick="digitar('5')">5</button>
+        <button onclick="digitar('6')">6</button>
+        <button onclick="calcular()" class="operador">=</button>
+        
+        <!-- Linha 4 -->
+        <button onclick="digitar('1')">1</button>
+        <button onclick="digitar('2')">2</button>
+        <button onclick="digitar('3')">3</button>
+        <button onclick="digitar('0')" class="zero">0</button>
+    </div>
+</div>
